@@ -2,6 +2,7 @@
 import { FC } from "react"
 import Link from "next/link"
 import { ThemeSwitch } from "../ThemeSwitch"
+import { KindeliaIcon } from "../icons/KindeliaIcon"
 
 export type NavLink = {
   text: string
@@ -33,7 +34,7 @@ export const Header: FC<HeaderProps> = ({ logo, links }) => {
           </label>
         </div>
         <div className="flex-1 px-2 mx-2 flex justify-center sm:justify-start">
-          <img src={logo} alt="logo" className="h-14 py-2" />
+          <KindeliaIcon size={48} />
         </div>
         <ThemeSwitch />
         <nav className="flex-none hidden sm:block">
