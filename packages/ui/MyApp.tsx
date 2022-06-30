@@ -10,7 +10,7 @@ export const MyApp =
     const getLayout = Component.getLayout ?? ((page) => page)
 
     return (
-      <ThemeProvider attribute="data-theme">
+      <ThemeProvider attribute="data-theme" disableTransitionOnChange>
         <DefaultSeo {...seo} />
         {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>

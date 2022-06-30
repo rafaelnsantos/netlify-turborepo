@@ -11,13 +11,13 @@ export const ThemeSwitch = () => {
   }, [])
 
   if (!mounted) {
-    return <div className="w-8" />
+    return <div className="w-12" />
   }
 
   const handleToggle = () => setTheme(theme === "light" ? "dark" : "light")
 
   return (
-    <label className="swap swap-rotate">
+    <label className="swap swap-rotate btn btn-square btn-ghost">
       <input
         type="checkbox"
         onChange={handleToggle}

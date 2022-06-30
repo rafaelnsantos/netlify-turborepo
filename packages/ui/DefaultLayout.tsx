@@ -19,7 +19,7 @@ export const DefaultLayout =
 
         <div className="drawer-content">
           <Header logo={logo} links={navigation} />
-          <div className="px-2">
+          <div className="p-2">
             <main className="mx-auto max-w-3xl">{page}</main>
           </div>
         </div>
