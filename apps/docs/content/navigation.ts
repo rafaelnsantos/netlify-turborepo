@@ -7,6 +7,6 @@ export const navigation: NavLink[] = [
   },
   {
     text: "Get started",
-    href: "/get-started",
+    href: "/",
   },
 ]

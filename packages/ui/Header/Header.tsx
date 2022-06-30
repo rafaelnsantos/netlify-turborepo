@@ -15,13 +15,11 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = ({ logo, links }) => {
   return (
-    <header className="bg-base-300 navbar w-full shadow">
+    <header className="bg-base-200 navbar w-full shadow">
       <div className="max-w-5xl mx-auto flex flex-1 justify-between">
         <div className="flex-none sm:hidden">
           <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               viewBox="0 0 24 24"
               className="inline-block w-8 h-8 stroke-current"
             >
