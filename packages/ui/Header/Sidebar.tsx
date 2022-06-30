@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { FC } from "react"
+import { FC, useRef } from "react"
 import { NavLink } from "./Header"
 
 interface SidebarProps {
@@ -7,15 +7,13 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = ({ links }) => {
-  const handleClick = () => {
-    const input = document.getElementById("my-drawer")
+  const ref = useRef<HTMLLabelElement>(null)
 
-    if (input) (input as HTMLInputElement).checked = false
-  }
+  const handleClick = () => ref.current?.click()
 
   return (
     <div className="drawer-side">
-      <label htmlFor="my-drawer" className="drawer-overlay" />
+      <label ref={ref} htmlFor="my-drawer" className="drawer-overlay" />
 
       <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
         {links.map((link) => (
