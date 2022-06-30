@@ -5,20 +5,19 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "../../packages/ui/**/*.{ts,tsx}",
   ],
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        text: {
-          light: "hsl(222deg, 22%, 5%)",
-          dark: "hsl(0deg, 0%, 100%)",
-        },
-        background: {
-          light: "hsl(0deg, 0%, 100%)",
-          dark: "hsl(210deg, 30%, 8%)",
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
         },
       },
-    },
+      {
+        dark: {
+          ...require("daisyui/src/colors/themes")["[data-theme=night]"],
+        },
+      },
+    ],
   },
-  plugins: [],
 }
