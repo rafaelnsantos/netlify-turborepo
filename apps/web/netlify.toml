@@ -13,7 +13,7 @@
   publish = ".next/"
 
   # Default build command.
-  command = "cd ../.. && yarn && yarn build:web"
+  command = "cd ../.. && yarn && yarn build --filter=...web"
 
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF . ../../packages/"
 
