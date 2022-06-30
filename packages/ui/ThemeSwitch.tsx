@@ -11,7 +11,7 @@ export const ThemeSwitch = () => {
   }, [])
 
   if (!mounted) {
-    return null
+    return <div className="w-8" />
   }
 
   const handleToggle = () => setTheme(theme === "light" ? "dark" : "light")
