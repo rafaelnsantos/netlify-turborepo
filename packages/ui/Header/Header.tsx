@@ -1,13 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 import { FC } from "react"
-import Link from "next/link"
 import { ThemeSwitch } from "../ThemeSwitch"
 import { KindeliaIcon } from "../icons/KindeliaIcon"
-
-export type NavLink = {
-  text: string
-  href: string
-}
+import { Navigation, NavLink } from "./Navigation"
 
 interface HeaderProps {
   logo: string
@@ -39,13 +33,7 @@ export const Header: FC<HeaderProps> = ({ logo, links }) => {
         <ThemeSwitch />
         <nav className="flex-none hidden sm:block">
           <ul className="menu menu-horizontal">
-            {links.map((link) => (
-              <li key={link.text}>
-                <Link href={link.href}>
-                  <a className="self-center">{link.text}</a>
-                </Link>
-              </li>
-            ))}
+            <Navigation links={links} />
           </ul>
         </nav>
       </div>
