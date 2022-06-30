@@ -13,7 +13,7 @@
   publish = ".next/"
 
   # Default build command.
-  command = "cd ../.. && yarn build:web"
+  command = "cd ../.. && yarn && yarn build:web"
 
 [[plugins]]
   # Installs the Lighthouse Build Plugin for all deploy contexts
