@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.14",
-    "next-transpile-modules": "9.0.0",
+    "next-config": "*",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   }

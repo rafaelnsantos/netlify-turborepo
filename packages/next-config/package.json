@@ -1,0 +1,9 @@
+{
+  "name": "next-config",
+  "version": "0.0.0",
+  "main": "next.config.js",
+  "license": "MIT",
+  "dependencies": {
+    "next-transpile-modules": "9.0.0"
+  }
+}
