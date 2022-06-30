@@ -1,1 +1,4 @@
-export { MyApp as default } from "ui"
+import { MyApp } from "ui"
+import seo from "../seo.config"
+
+export default MyApp(seo)

@@ -1,13 +1,18 @@
+/* eslint-disable react/display-name */
+import { DefaultSeo, NextSeoProps } from "next-seo"
 import { ThemeProvider } from "next-themes"
 import { AppPropsWithLayout } from "./Layout"
 import "./tailwind.css"
 
-export function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => page)
+export const MyApp =
+  (seo: NextSeoProps) =>
+  ({ Component, pageProps }: AppPropsWithLayout) => {
+    const getLayout = Component.getLayout ?? ((page) => page)
 
-  return (
-    <ThemeProvider attribute="data-theme">
-      {getLayout(<Component {...pageProps} />)}
-    </ThemeProvider>
-  )
-}
+    return (
+      <ThemeProvider attribute="data-theme">
+        <DefaultSeo {...seo} />
+        {getLayout(<Component {...pageProps} />)}
+      </ThemeProvider>
+    )
+  }
