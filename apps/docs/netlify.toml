@@ -15,6 +15,8 @@
   # Default build command.
   command = "cd ../.. && yarn && yarn build:docs"
 
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF . ../../packages/"
+
 [[plugins]]
   # Installs the Lighthouse Build Plugin for all deploy contexts
   package = "@netlify/plugin-nextjs"
