@@ -15,12 +15,10 @@
     "ui": "*"
   },
   "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-custom": "*",
-    "next-transpile-modules": "9.0.0",
-    "tsconfig": "*",
     "@types/node": "^17.0.12",
     "@types/react": "17.0.37",
+    "next-transpile-modules": "9.0.0",
+    "tsconfig": "*",
     "typescript": "^4.5.3"
   }
 }
