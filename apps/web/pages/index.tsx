@@ -1,11 +1,15 @@
-import { Button, ThemeSwitch } from "ui"
+import { NextPageWithLayout } from "ui"
+import { Layout } from "../components/Layout"
 
-export default function Web() {
+const LandingPage: NextPageWithLayout = () => {
   return (
     <div>
-      <ThemeSwitch />
       <h1>Web</h1>
-      <Button />
+      <button className="btn">Boop</button>
     </div>
   )
 }
+
+LandingPage.getLayout = Layout
+
+export default LandingPage

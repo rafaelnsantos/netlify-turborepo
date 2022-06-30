@@ -1,11 +1,13 @@
-import type { AppProps } from "next/app"
 import { ThemeProvider } from "next-themes"
+import { AppPropsWithLayout } from "./Layout"
 import "./tailwind.css"
 
-export function MyApp({ Component, pageProps }: AppProps) {
+export function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page)
+
   return (
-    <ThemeProvider attribute="class">
-      <Component {...pageProps} />
+    <ThemeProvider attribute="data-theme">
+      {getLayout(<Component {...pageProps} />)}
     </ThemeProvider>
   )
 }
