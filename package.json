@@ -8,11 +8,14 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:docs": "turbo run build:docs",
+    "build:web": "turbo run build:web",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.10.1",
     "eslint-config-custom": "*",
     "prettier": "latest",
     "turbo": "latest"
