@@ -1,4 +1,4 @@
-import { Button, ThemeSwitch } from "ui";
+import { Button, ThemeSwitch } from "ui"
 
 export default function Web() {
   return (
@@ -7,5 +7,5 @@ export default function Web() {
       <h1>Web</h1>
       <Button />
     </div>
-  );
+  )
 }

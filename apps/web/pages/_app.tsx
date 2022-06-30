@@ -1,1 +1,1 @@
-export { MyApp as default } from "ui";
+export { MyApp as default } from "ui"

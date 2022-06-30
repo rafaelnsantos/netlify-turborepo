@@ -1,1 +1,1 @@
-export { MyDocument as default } from "ui";
+export { MyDocument as default } from "ui"

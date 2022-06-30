@@ -1,4 +1,4 @@
-import { Button, ThemeSwitch } from "ui";
+import { Button, ThemeSwitch } from "ui"
 
 export default function Docs() {
   return (
@@ -7,5 +7,5 @@ export default function Docs() {
       <h1>Docs</h1>
       <Button />
     </div>
-  );
+  )
 }
