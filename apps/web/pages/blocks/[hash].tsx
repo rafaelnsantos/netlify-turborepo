@@ -9,10 +9,9 @@ import * as T from "@/lib/types"
 import { Codeblock } from "@/components/Codeblock"
 import { Statements } from "@/components/Statement"
 import { useNodeStore } from "@/store/useNodeStore"
-import { Error, NextPageWithLayout } from "ui"
+import { Error, NextPageWithLayout, Page } from "ui"
 import { Option } from "api/utils/enum"
 import { Layout } from "@/components/Layout"
-import { NextSeo } from "next-seo"
 
 interface BlockPageProps {
   block_info: Option<T.BlockInfoJson>
@@ -34,8 +33,10 @@ const BlockPage: NextPageWithLayout<BlockPageProps> = ({
   const parent = block.prev
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-5 mx-auto max-w-3xl">
-      <NextSeo title={`Block ${hash}`} />
+    <Page
+      title={`Block ${hash}`}
+      className="flex flex-col items-center justify-center space-y-5"
+    >
       <h1>
         Block hash: <code> {hash} </code>
       </h1>
@@ -54,7 +55,7 @@ const BlockPage: NextPageWithLayout<BlockPageProps> = ({
       </Codeblock>
       <h2> Results: </h2>
       <pre>{result_txts.join("\n\n")}</pre>
-    </div>
+    </Page>
   )
 }
 

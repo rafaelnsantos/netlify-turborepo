@@ -1,10 +1,9 @@
 import Link from "next/link"
 
 import { get_functions } from "@/lib/api"
-import { Error, NextPageWithLayout } from "ui"
+import { Error, NextPageWithLayout, Page } from "ui"
 import { useNodeStore } from "@/store/useNodeStore"
 import { Layout } from "@/components/Layout"
-import { NextSeo } from "next-seo"
 
 interface FunctionIndexProps {
   functions?: string[]
@@ -18,8 +17,7 @@ const FunctionsIndex: NextPageWithLayout<FunctionIndexProps> = ({
   if (error) return <Error message={error} />
 
   return (
-    <div className="overflow-x-auto max-w-4xl mx-auto p-2">
-      <NextSeo title="Functions" />
+    <Page title="Functions" className="overflow-x-auto">
       <table className="table w-full">
         <thead>
           <tr>
@@ -37,7 +35,7 @@ const FunctionsIndex: NextPageWithLayout<FunctionIndexProps> = ({
           ))}
         </tbody>
       </table>
-    </div>
+    </Page>
   )
 }
 

@@ -2,10 +2,9 @@ import { FC, ReactNode } from "react"
 
 import { get_function, get_function_state } from "@/lib/api"
 import { FunctionId, TermJson } from "@/lib/types"
-import { Error, NextPageWithLayout } from "ui"
+import { Error, NextPageWithLayout, Page } from "ui"
 import { read_term } from "@/lib/hvm"
 import { Term } from "@/components/Statement"
-import { NextSeo } from "next-seo"
 import { Layout } from "@/components/Layout"
 
 interface BlockProps {
@@ -36,8 +35,7 @@ const SingleFunction: NextPageWithLayout<SingleFunctionProps> = ({
   if (error) return <Error message={error} />
 
   return (
-    <div className="flex flex-col max-w-3xl mx-auto">
-      <NextSeo title={`Function ${name}`} />
+    <Page title={`Function ${name}`} className="flex flex-col">
       <h2 className="text-2xl">{name?.toString()}</h2>
       WIP {JSON.stringify(fun)}
       {state && (
@@ -46,7 +44,7 @@ const SingleFunction: NextPageWithLayout<SingleFunctionProps> = ({
         </Block>
       )}
       <Block title="History">WIP</Block>
-    </div>
+    </Page>
   )
 }
 

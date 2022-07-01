@@ -1,7 +1,6 @@
-import { NextPageWithLayout } from "ui"
+import { NextPageWithLayout, Page } from "ui"
 import { Card } from "ui/homepage"
 import { Layout } from "../components/Layout"
-import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import { get_github_info, GithubInfo } from "api/github"
 
@@ -12,8 +11,7 @@ interface LandingPageProps {
 
 const LandingPage: NextPageWithLayout<LandingPageProps> = ({ kind, hvm }) => {
   return (
-    <div>
-      <NextSeo title="Home" />
+    <Page title="Home" className="max-w-none p-0">
       <div className="hero min-h-85-screen md:min-h-70-screen">
         <div className="hero-content text-center">
           <div className="max-w-md prose">
@@ -42,7 +40,7 @@ const LandingPage: NextPageWithLayout<LandingPageProps> = ({ kind, hvm }) => {
           color="#CA1E8E"
         />
       </div>
-    </div>
+    </Page>
   )
 }
 
