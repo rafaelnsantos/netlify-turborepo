@@ -11,7 +11,11 @@ interface LandingPageProps {
 
 const LandingPage: NextPageWithLayout<LandingPageProps> = ({ kind, hvm }) => {
   return (
-    <Page title="Home" className="max-w-none p-0">
+    <Page
+      title="Home"
+      description="Kindelia Explorer landing page"
+      className="max-w-none p-0"
+    >
       <div className="hero min-h-85-screen md:min-h-70-screen">
         <div className="hero-content text-center">
           <div className="max-w-md prose">

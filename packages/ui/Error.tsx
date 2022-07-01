@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo"
 import { KindeliaIcon } from "./icons/KindeliaIcon"
 
 interface ErrorProps {
@@ -8,6 +9,7 @@ interface ErrorProps {
 export const Error: React.FC<ErrorProps> = ({ code, message }) => {
   return (
     <div className="flex flex-col h-full justify-center">
+      <NextSeo title={`Error ${code}`} />
       <div className="h-28 md:h-48">
         <KindeliaIcon size="100%" />
       </div>
