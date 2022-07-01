@@ -15,7 +15,7 @@
   # Default build command.
   command = "cd ../.. && yarn && yarn build --filter=sale..."
 
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF . ../../packages/"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF . ../../lib/"
 
 [[plugins]]
   # Installs the Lighthouse Build Plugin for all deploy contexts
