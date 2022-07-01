@@ -13,7 +13,7 @@ const nodes: Node[] = NODES.map((url, i) => ({
 
 nodes.unshift({ name: "Default", url: "/api" })
 
-nodes.push({ name: "localhost:8000", url: "localhost" })
+nodes.push({ name: "localhost:8000", url: "127.0.0.1" })
 
 type NodeStore = {
   nodes: Node[]

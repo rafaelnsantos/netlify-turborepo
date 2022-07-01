@@ -1,0 +1,22 @@
+/* TODO: use theme colors */
+/* color: theme('colors.primary') */
+
+.statement_io {
+  color: darkred;
+}
+
+.statement_ctr {
+  color: green;
+}
+
+.statement_fun {
+  color: rgb(65, 209, 159);
+}
+
+.statement_keyword {
+  color: blue;
+}
+
+.statement_reference {
+  color: lightslategrey;
+}
