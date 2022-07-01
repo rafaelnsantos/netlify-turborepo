@@ -31,7 +31,7 @@ export const Header: FC<HeaderProps> = ({ links, dropdown, search }) => {
         </div>
         <div className="flex-1 flex justify-start">
           <Link href="/">
-            <a>
+            <a aria-label="Go to homepage">
               <KindeliaIcon size={48} />
             </a>
           </Link>

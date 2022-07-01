@@ -14,10 +14,10 @@ export const Sidebar: FC<SidebarProps> = ({ links, search }) => {
   return (
     <div className="drawer-side">
       <label ref={ref} htmlFor="my-drawer" className="drawer-overlay" />
-      <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
+      <div className="menu p-4 overflow-y-auto w-80 bg-base-100 space-y-3">
         {search}
         <Navigation links={links} onClick={handleClick} />
-      </ul>
+      </div>
     </div>
   )
 }

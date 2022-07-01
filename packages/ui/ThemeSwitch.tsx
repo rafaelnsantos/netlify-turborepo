@@ -17,11 +17,15 @@ export const ThemeSwitch = () => {
   const handleToggle = () => setTheme(theme === "light" ? "dark" : "light")
 
   return (
-    <label className="swap swap-rotate btn btn-square btn-ghost">
+    <label
+      htmlFor="theme-switch"
+      className="swap swap-rotate btn btn-square btn-ghost"
+    >
       <input
         type="checkbox"
         onChange={handleToggle}
         checked={theme === "dark"}
+        id="theme-switch"
       />
 
       <svg
