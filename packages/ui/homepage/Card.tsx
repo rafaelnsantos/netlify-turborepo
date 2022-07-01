@@ -26,7 +26,7 @@ export const Card: FC<CardProps> = ({
       )}
     >
       <div
-        className={classNames("flex-1 prose", reverse ? "sm:pl-8" : "sm:pr-8")}
+        className={classNames("flex-1 prose", reverse ? "md:pl-8" : "md:pr-8")}
       >
         <h2>{title}</h2>
         <p>{description}</p>

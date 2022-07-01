@@ -14,7 +14,7 @@ const LandingPage: NextPageWithLayout<LandingPageProps> = ({ kind, hvm }) => {
   return (
     <div>
       <NextSeo title="Home" />
-      <div className="hero min-h-85-screen sm:min-h-70-screen">
+      <div className="hero min-h-85-screen md:min-h-70-screen">
         <div className="hero-content text-center">
           <div className="max-w-md prose">
             <h1 className="text-5xl">Kindelia</h1>
@@ -27,7 +27,7 @@ const LandingPage: NextPageWithLayout<LandingPageProps> = ({ kind, hvm }) => {
           </div>
         </div>
       </div>
-      <div className="max-w-4xl mx-auto px-2 space-y-10 sm:space-y-0 min-h-100-screen sm:min-h-70-screen flex flex-col justify-evenly pb-10 sm:pb-0">
+      <div className="max-w-4xl mx-auto px-2 space-y-10 md:space-y-0 min-h-100-screen md:min-h-70-screen flex flex-col justify-evenly pb-10 md:pb-0">
         <Card
           title="Cheap state and computation"
           description="By storing the global state as reversible runtime heaps, it can run highly dynamic applications with massively reduced costs, making layer 1 virtual worlds economically viable."
