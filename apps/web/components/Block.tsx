@@ -11,6 +11,7 @@ import {
   BlockResultsJson,
   StmtRunInfoJson,
 } from "@/lib/types"
+import { useRouter } from "next/router"
 
 export const Block: FC<BlockInfoJson> = ({
   block,
@@ -23,18 +24,23 @@ export const Block: FC<BlockInfoJson> = ({
   let size = calculate_size(results)
   let { ctrs, funs, runs } = count_statements(content)
 
+  const router = useRouter()
+
+  const url = `/blocks/${hash}`
+
   return (
-    <tr className="hover">
-      <th>#{height}</th>
-      <td className="flex-1">{hash.substring(0, 8)}</td>
+    <tr className="hover cursor-pointer" onClick={() => router.push(url)}>
+      <td>#{height}</td>
+      <th>
+        <Link href={url}>
+          <a className="flex">{hash.substring(0, 8)}</a>
+        </Link>
+      </th>
       <td>{mana.toString()}</td>
       <td>{size.toString()}</td>
       <td>{ctrs}</td>
       <td>{funs}</td>
       <td>{runs}</td>
-      <Link href={`/blocks/${hash}`}>
-        <a className="absolute left-0 h-14 w-full cursor-pointer"></a>
-      </Link>
     </tr>
   )
 }

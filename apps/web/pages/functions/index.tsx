@@ -4,6 +4,7 @@ import { get_functions } from "@/lib/api"
 import { Error, NextPageWithLayout, Page } from "ui"
 import { useNodeStore } from "@/store/useNodeStore"
 import { Layout } from "@/components/Layout"
+import { useRouter } from "next/router"
 
 interface FunctionIndexProps {
   functions?: string[]
@@ -14,6 +15,8 @@ const FunctionsIndex: NextPageWithLayout<FunctionIndexProps> = ({
   functions,
   error,
 }) => {
+  const router = useRouter()
+
   if (error) return <Error message={error} />
 
   return (
@@ -26,11 +29,16 @@ const FunctionsIndex: NextPageWithLayout<FunctionIndexProps> = ({
         </thead>
         <tbody>
           {functions?.map((name) => (
-            <tr key={name} className="hover">
-              <td>{name}</td>
-              <Link href={`/functions/${name}`} key={name}>
-                <a className="absolute left-0 h-14 w-full cursor-pointer"></a>
-              </Link>
+            <tr
+              key={name}
+              className="hover cursor-pointer"
+              onClick={() => router.push(`/functions/${name}`)}
+            >
+              <td>
+                <Link href={`/functions/${name}`} key={name}>
+                  <a className="flex">{name}</a>
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>
