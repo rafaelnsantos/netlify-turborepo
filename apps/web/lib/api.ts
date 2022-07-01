@@ -54,16 +54,14 @@ export const get_blocks = (node?: string) =>
 export const get_block = (hex: T.BlockId, node?: string) =>
   fetch_api<Option<T.BlockInfoJson>>(`/blocks/${hex}`, node)
 
-// // REMOVED
-// export const get_block_content = (id: T.BlockId) =>
-//   fetch_api<T.BlockContentJson>(`/blocks/${id}/content`)
-
 // Functions
 
 export const get_functions = (node?: string) =>
   fetch_api<T.Name[]>("/functions", node)
 
-// export const get_function = (id: FunctionId) => fetch_api<T.Function>(`/functions/${id}`)
+//TODO: function type
+export const get_function = (id: T.FunctionId) =>
+  fetch_api<any>(`/functions/${id}`)
 
 export const get_function_state = (id: T.FunctionId) =>
   fetch_api<T.TermJson>(`/functions/${id}/state`)
