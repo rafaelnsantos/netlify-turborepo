@@ -1,18 +1,20 @@
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 import { ThemeSwitch } from "../ThemeSwitch"
 import { KindeliaIcon } from "../icons/KindeliaIcon"
 import { Navigation, NavLink } from "./Navigation"
+import Link from "next/link"
 
 interface HeaderProps {
-  logo: string
   links: NavLink[]
+  dropdown?: ReactNode
+  search?: ReactNode
 }
 
-export const Header: FC<HeaderProps> = ({ logo, links }) => {
+export const Header: FC<HeaderProps> = ({ links, dropdown, search }) => {
   return (
-    <header className="bg-base-200 navbar w-full shadow">
+    <header className="bg-base-100 bg-opacity-90 navbar w-full shadow top-0 sticky z-20 backdrop-blur">
       <div className="max-w-5xl mx-auto flex flex-1 justify-between">
-        <div className="flex-none sm:hidden">
+        <div className="flex-none md:hidden">
           <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
             <svg
               viewBox="0 0 24 24"
@@ -27,12 +29,18 @@ export const Header: FC<HeaderProps> = ({ logo, links }) => {
             </svg>
           </label>
         </div>
-        <div className="flex-1 px-2 mx-2 flex justify-center sm:justify-start">
-          <KindeliaIcon size={48} />
+        <div className="flex-1 flex justify-start">
+          <Link href="/">
+            <a>
+              <KindeliaIcon size={48} />
+            </a>
+          </Link>
+          <div className="self-center ml-2">{dropdown}</div>
         </div>
+        <div className="hidden md:block md:mr-2 w-60">{search}</div>
         <ThemeSwitch />
-        <nav className="flex-none hidden sm:block">
-          <ul className="menu menu-horizontal">
+        <nav className="flex-none hidden md:block">
+          <ul className="menu menu-horizontal rounded-lg">
             <Navigation links={links} />
           </ul>
         </nav>
