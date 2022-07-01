@@ -1,3 +1,6 @@
 export * from "./DiscordIcon"
 export * from "./GithubIcon"
 export * from "./TelegramIcon"
+export * from "./ForkIcon"
+export * from "./RepositoryIcon"
+export * from "./StarIcon"

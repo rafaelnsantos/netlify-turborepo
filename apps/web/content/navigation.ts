@@ -2,15 +2,15 @@ import { NavLink } from "ui/Header"
 
 export const navigation: NavLink[] = [
   {
-    text: "Home",
-    href: "#",
+    text: "Interact",
+    href: "/interact",
   },
   {
-    text: "Contact",
-    href: "#contact",
+    text: "Blocks",
+    href: "/blocks",
   },
   {
-    text: "About us",
-    href: "#about",
+    text: "Functions",
+    href: "/functions",
   },
 ]

@@ -11,6 +11,9 @@ module.exports = {
     extend: {
       height,
       minHeight: height,
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
