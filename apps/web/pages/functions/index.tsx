@@ -17,7 +17,7 @@ const FunctionsIndex: NextPageWithLayout<FunctionIndexProps> = ({
   if (error) return <Error message={error} />
 
   return (
-    <Page title="Functions" className="overflow-x-auto">
+    <Page title="Functions">
       <table className="table w-full">
         <thead>
           <tr>

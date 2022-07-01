@@ -8,7 +8,12 @@ interface PageProps extends NextSeoProps {
 }
 
 export const Page: FC<PageProps> = ({ children, className, ...seo }) => (
-  <div className={classNames(className, "max-w-4xl mx-auto p-2 md:px-0")}>
+  <div
+    className={classNames(
+      className,
+      "max-w-4xl mx-auto p-2 md:px-0 overflow-x-auto"
+    )}
+  >
     <NextSeo {...seo} />
     {children}
   </div>

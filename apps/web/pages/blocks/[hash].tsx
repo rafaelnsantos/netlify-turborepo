@@ -33,10 +33,7 @@ const BlockPage: NextPageWithLayout<BlockPageProps> = ({
   const parent = block.prev
 
   return (
-    <Page
-      title={`Block ${hash}`}
-      className="flex flex-col items-center justify-center space-y-5"
-    >
+    <Page title={`Block ${hash}`} className="flex flex-col space-y-5">
       <h1>
         Block hash: <code> {hash} </code>
       </h1>
@@ -46,7 +43,7 @@ const BlockPage: NextPageWithLayout<BlockPageProps> = ({
       <div>
         <Link href={`/blocks/${parent}`}>
           <a>
-            Block Parent: <span className="text-blue-800"> {parent} </span>
+            Block Parent: <span className="underline"> {parent} </span>
           </a>
         </Link>
       </div>

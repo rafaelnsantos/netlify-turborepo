@@ -14,7 +14,7 @@ const BlockIndex: NextPageWithLayout<BlockIndexProps> = ({ blocks, error }) => {
   if (error) return <Error message={error} />
 
   return (
-    <Page title="Blocks" className="overflow-x-auto">
+    <Page title="Blocks" className="px-0">
       <table className="table w-full">
         <thead>
           <tr>
