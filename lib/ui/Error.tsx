@@ -13,7 +13,7 @@ export const Error: React.FC<ErrorProps> = ({ code, message }) => {
       <div className="h-28 md:h-48">
         <KindeliaIcon size="100%" />
       </div>
-      <div className="text-center space-y-1">
+      <div className="text-center space-y-2">
         <h1 className="text-4xl">{code}</h1>
         <p>{message}</p>
       </div>
