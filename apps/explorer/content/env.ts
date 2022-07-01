@@ -1,5 +1,5 @@
-export const DOCS_URL =
-  process.env.NEXT_PUBLIC_DOCS_URL ?? "//teste-docs.netlify.app"
+export const SALE_URL =
+  process.env.NEXT_PUBLIC_SALE_URL ?? "//teste-docs.netlify.app"
 
 export const NODES = (
   process.env.NEXT_PUBLIC_KINDELIA_DEFAULT_NODES ||
