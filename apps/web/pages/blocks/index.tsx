@@ -4,6 +4,7 @@ import { BlockInfoJson } from "@/lib/types"
 import { useNodeStore } from "@/store/useNodeStore"
 import { Block } from "@/components/Block"
 import { Layout } from "@/components/Layout"
+import { NextSeo } from "next-seo"
 
 interface BlockIndexProps {
   blocks?: BlockInfoJson[]
@@ -14,7 +15,8 @@ const BlockIndex: NextPageWithLayout<BlockIndexProps> = ({ blocks, error }) => {
   if (error) return <Error message={error} />
 
   return (
-    <div className="overflow-x-auto max-w-4xl mx-auto">
+    <div className="overflow-x-auto max-w-4xl mx-auto mt-2">
+      <NextSeo title="Blocks" />
       <table className="table w-full">
         <thead>
           <tr>

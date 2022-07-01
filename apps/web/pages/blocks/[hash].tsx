@@ -12,6 +12,7 @@ import { useNodeStore } from "@/store/useNodeStore"
 import { Error, NextPageWithLayout } from "ui"
 import { Option } from "api/utils/enum"
 import { Layout } from "@/components/Layout"
+import { NextSeo } from "next-seo"
 
 interface BlockPageProps {
   block_info: Option<T.BlockInfoJson>
@@ -34,6 +35,7 @@ const BlockPage: NextPageWithLayout<BlockPageProps> = ({
 
   return (
     <div className="flex flex-col items-center justify-center space-y-5 mx-auto max-w-3xl">
+      <NextSeo title={`Block ${hash}`} />
       <h1>
         Block hash: <code> {hash} </code>
       </h1>
