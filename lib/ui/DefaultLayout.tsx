@@ -1,18 +1,16 @@
 /* eslint-disable react/display-name */
 import { ReactElement, ReactNode } from "react"
 import { Header, NavLink, Sidebar } from "ui/Header"
-import { SocialProps } from "./Footer"
 import { Footer } from "./Footer/Footer"
 
 interface DefaultLayoutProps {
   navigation: NavLink[]
   dropdown?: ReactNode
   search?: ReactNode
-  socials?: SocialProps[]
 }
 
 export const DefaultLayout =
-  ({ navigation, socials = [], dropdown, search }: DefaultLayoutProps) =>
+  ({ navigation, dropdown, search }: DefaultLayoutProps) =>
   (page: ReactElement) => {
     return (
       <div className="drawer">
@@ -21,7 +19,7 @@ export const DefaultLayout =
         <div className="drawer-content flex flex-col">
           <Header links={navigation} dropdown={dropdown} search={search} />
           <main className="flex-grow">{page}</main>
-          <Footer socials={socials} />
+          <Footer />
         </div>
         <Sidebar links={navigation} search={search} />
       </div>

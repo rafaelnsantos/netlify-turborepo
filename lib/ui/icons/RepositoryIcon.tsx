@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { IconProps } from "./DiscordIcon"
+import { IconProps } from "./KindeliaIcon"
 
 export const RepositoryIcon: FC<IconProps> = ({ size }) => (
   <svg width={size} height={size} viewBox="0 0 24 24">

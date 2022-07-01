@@ -1,5 +1,7 @@
-import { FC } from "react"
-import { IconProps } from "./DiscordIcon"
+import { CSSProperties, FC } from "react"
+export interface IconProps {
+  size?: CSSProperties["width"]
+}
 
 export const KindeliaIcon: FC<IconProps> = ({ size }) => (
   <svg width={size} height={size} viewBox="0 0 780.000000 780.000000">
