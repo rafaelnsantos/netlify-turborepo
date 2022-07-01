@@ -9,12 +9,15 @@ export interface GithubInfo {
   description: string
 }
 
+const token = process.env.GITHUB_TOKEN
+
 export const get_github_info = async (
   user: string,
   repository: string
 ): Promise<GithubInfo> => {
   const res = await axios.get<GithubInfo>(
-    `https://api.github.com/repos/${user}/${repository}`
+    `https://api.github.com/repos/${user}/${repository}`,
+    token ? { headers: { Authorization: `Bearer ${token}` } } : {}
   )
 
   const {
