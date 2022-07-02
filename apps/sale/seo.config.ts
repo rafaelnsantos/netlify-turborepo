@@ -1,7 +1,7 @@
 import { NextSeoProps } from "next-seo"
 
 const seo: NextSeoProps = {
-  titleTemplate: "Docs | %s",
+  titleTemplate: "Kindelia Sale | %s",
 }
 
 export default seo
