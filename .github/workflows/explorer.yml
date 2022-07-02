@@ -21,7 +21,8 @@ jobs:
     - name: Publish
       uses: netlify/actions/cli@master
       with:
-        args: deploy --prod
+        args: deploy --build --prod
       env:
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_ID_EXPLORER }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_USE_YARN: ${{ secrets.NETLIFY_USE_YARN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_ID_EXPLORER }}
