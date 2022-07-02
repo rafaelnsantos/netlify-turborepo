@@ -43,7 +43,7 @@ const BlockPage: NextPageWithLayout<BlockPageProps> = ({
       <div>
         <Link href={`/blocks/${parent}`}>
           <a>
-            Block Parent: <span className="link link-primary"> {parent} </span>
+            Block Parent: <span className="link"> {parent} </span>
           </a>
         </Link>
       </div>
