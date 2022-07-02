@@ -13,20 +13,19 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: mskelton/setup-yarn@v1
-      with:
-        node-version: '16.x'
-
     - uses: actions/cache@v3
-      id: yarn-cache
       with:
         path: |
-          ${{ github.workspace }}/apps/explorer/.next
-          ${{ github.workspace }}/apps/explorer/.turbo
-          ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          apps/explorer/.next
+          apps/explorer/.turbo
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
+
+    - uses: mskelton/setup-yarn@v1
+      with:
+        node-version: '16.x'
+        cache: 'yarn'
 
     - run: yarn global add netlify-cli
 
