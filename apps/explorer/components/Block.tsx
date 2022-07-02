@@ -30,12 +30,12 @@ export const Block: FC<BlockInfoJson> = ({
 
   return (
     <tr className="hover cursor-pointer" onClick={() => router.push(url)}>
-      <td>#{height}</td>
-      <th>
+      <th>#{height}</th>
+      <td>
         <Link href={url}>
-          <a className="flex">{hash.substring(0, 8)}</a>
+          <a className="flex link">{hash.substring(0, 8)}</a>
         </Link>
-      </th>
+      </td>
       <td>{mana.toString()}</td>
       <td>{size.toString()}</td>
       <td>{ctrs}</td>
