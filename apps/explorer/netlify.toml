@@ -13,11 +13,7 @@
   publish = ".next/"
 
   # Default build command.
-  # netlify
-  # command = "cd ../.. && yarn && yarn build --filter=explorer..."
-  
-  # github action 
-  command = "yarn build"
+  command = "cd ../.. && yarn && yarn build --filter=explorer..."
 
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF . ../../lib/"
 

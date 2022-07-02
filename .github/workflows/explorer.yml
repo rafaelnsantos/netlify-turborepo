@@ -2,6 +2,11 @@ on: push
 
 name: Publish Explorer on Netlify
 
+env:
+  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  NETLIFY_USE_YARN: ${{ secrets.NETLIFY_USE_YARN }}
+  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_ID_EXPLORER }}
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -14,15 +19,8 @@ jobs:
         node-version: '16.x'
 
     - name: Build
-      run: yarn build --filter=explorer...
+      run: yarn global add netlify-cli
 
     - run: cd apps/explorer
 
-    - name: Publish
-      uses: netlify/actions/cli@master
-      with:
-        args: deploy --build --prod
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_USE_YARN: ${{ secrets.NETLIFY_USE_YARN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_ID_EXPLORER }}
+    - run: netlify deploy --build --prod
