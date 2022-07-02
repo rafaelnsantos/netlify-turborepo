@@ -23,13 +23,13 @@ jobs:
       with:
         path: |
           ${{ github.workspace }}/apps/explorer/.next/cache
+          ${{ github.workspace }}/node_modules/.cache/turbo
           ${{ github.workspace }}/.cache
           ${{ github.workspace }}/apps/explorer/.netlify/cache
           ${{ github.workspace }}/**/tsconfig.tsbuildinfo
         key: ${{ runner.os }}-nextjs-explorer-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/explorer/**.[jt]sx?', 'apps/explorer/**.json', 'lib/**.[jt]sx?') }}
         restore-keys: |
           ${{ runner.os }}-explorer-${{ hashFiles('**/yarn.lock') }}-
-          ${{ runner.os }}-explorer-
 
     - run: yarn install --immutable
 
