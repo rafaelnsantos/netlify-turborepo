@@ -6,6 +6,7 @@ import { Error, NextPageWithLayout, Page } from "ui"
 import { read_term } from "@/lib/hvm"
 import { Term } from "@/components/Statement"
 import { Layout } from "@/components/Layout"
+import { useNodeStore } from "@/store/useNodeStore"
 
 interface BlockProps {
   title: string
@@ -51,8 +52,9 @@ const SingleFunction: NextPageWithLayout<SingleFunctionProps> = ({
 SingleFunction.getInitialProps = async (ctx) => {
   const name = ctx.query.name as FunctionId
   try {
-    const state = await get_function_state(name)
-    const fun = await get_function(name)
+    const node = useNodeStore.getState().selectedNode.url
+    const state = await get_function_state(name, node)
+    const fun = await get_function(name, node)
 
     return {
       fun,

@@ -60,8 +60,8 @@ export const get_functions = (node?: string) =>
   fetch_api<T.Name[]>("/functions", node)
 
 //TODO: function type
-export const get_function = (id: T.FunctionId) =>
-  fetch_api<any>(`/functions/${id}`)
+export const get_function = (id: T.FunctionId, node?: string) =>
+  fetch_api<any>(`/functions/${id}`, node)
 
-export const get_function_state = (id: T.FunctionId) =>
-  fetch_api<T.TermJson>(`/functions/${id}/state`)
+export const get_function_state = (id: T.FunctionId, node?: string) =>
+  fetch_api<T.TermJson>(`/functions/${id}/state`, node)
