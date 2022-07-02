@@ -6,16 +6,17 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./apps/explorer
-
     steps:
     - uses: actions/checkout@master
 
     - uses: mskelton/setup-yarn@v1
       with:
         node-version: '16.x'
+
+    - name: Build
+      run: yarn build --filter=explorer...
+
+    - run: cd apps/explorer
 
     - name: Publish
       uses: netlify/actions/cli@master
