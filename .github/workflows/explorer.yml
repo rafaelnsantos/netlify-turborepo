@@ -4,7 +4,6 @@ name: Publish Explorer on Netlify
 
 env:
   NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-  NETLIFY_USE_YARN: ${{ secrets.NETLIFY_USE_YARN }}
   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_ID_EXPLORER }}
 
 jobs:
@@ -12,11 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
 
     - uses: mskelton/setup-yarn@v1
       with:
         node-version: '16.x'
+
+    - uses: actions/cache@v3
+      id: yarn-cache
+      with:
+        path: |
+          ${{ github.workspace }}/apps/explorer/.next
+          ${{ github.workspace }}/apps/explorer/.turbo
+          ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
 
     - name: Build
       run: yarn global add netlify-cli
