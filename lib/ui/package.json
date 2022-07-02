@@ -12,8 +12,7 @@
     "@types/tailwindcss": "^3.0.11",
     "next": "^12.2.0",
     "react": "^18.2.0",
-    "tsconfig": "*",
-    "typescript": "^4.5.2"
+    "tsconfig": "*"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
