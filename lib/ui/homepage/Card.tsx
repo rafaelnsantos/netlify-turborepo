@@ -21,7 +21,7 @@ export const Card: FC<CardProps> = ({
   return (
     <div
       className={classNames(
-        reverse ? "md:flex-row-reverse" : "",
+        { "md:flex-row-reverse": reverse },
         "flex flex-col md:flex-row justify-between items-center space-y-5"
       )}
     >
