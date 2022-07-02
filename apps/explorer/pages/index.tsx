@@ -54,6 +54,8 @@ export const getStaticProps: GetStaticProps<LandingPageProps> = async () => {
   const kind = await get_github_info("kindelia", "kind")
   const hvm = await get_github_info("kindelia", "hvm")
 
+  kind.language = "Kind"
+
   return { props: { kind, hvm } }
 }
 
