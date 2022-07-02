@@ -24,9 +24,9 @@ jobs:
         path: |
           ${{ github.workspace }}/apps/explorer/.next/cache
           ${{ github.workspace }}/.cache
-          ${{ github.workspace }}/.netlify/cache
+          ${{ github.workspace }}/apps/explorer/.netlify/cache
           ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-        key: ${{ runner.os }}-nextjs-explorer-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/explorer/src/**.[jt]sx?', 'apps/explorer/src/**.json') }}
+        key: ${{ runner.os }}-nextjs-explorer-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/explorer/**.[jt]sx?', 'apps/explorer/**.json', 'lib/**.[jt]sx?') }}
         restore-keys: |
           ${{ runner.os }}-explorer-${{ hashFiles('**/yarn.lock') }}-
 
