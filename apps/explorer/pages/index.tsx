@@ -1,5 +1,5 @@
 import { NextPageWithLayout, Page } from "ui"
-import { Card } from "ui/homepage"
+import { Card, Subscribe } from "ui/homepage"
 import { Layout } from "../components/Layout"
 import { GetStaticProps } from "next"
 import { get_github_info, GithubInfo } from "api/github"
@@ -25,7 +25,7 @@ const LandingPage: NextPageWithLayout<LandingPageProps> = ({ kind, hvm }) => {
               goal is to solve the{" "}
               <span className="underline">{`Zooko's triangle trillema`}</span>.
             </p>
-            <button className="btn btn-primary">Explore</button>
+            <button className="btn btn-lg mt-4 btn-outline">Explore</button>
           </div>
         </div>
       </div>
@@ -43,6 +43,9 @@ const LandingPage: NextPageWithLayout<LandingPageProps> = ({ kind, hvm }) => {
           reverse
           color="#CA1E8E"
         />
+      </div>
+      <div className="hero min-h-55-screen">
+        <Subscribe />
       </div>
     </Page>
   )
