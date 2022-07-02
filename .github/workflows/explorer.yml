@@ -13,6 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'yarn'
+
     - uses: actions/cache@v3
       with:
         path: |
@@ -22,10 +27,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
 
-    - uses: mskelton/setup-yarn@v1
-      with:
-        node-version: '16.x'
-        cache: 'yarn'
+    - run: yarn install --frozen-lockfile
 
     - run: yarn global add netlify-cli
 
