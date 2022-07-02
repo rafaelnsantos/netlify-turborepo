@@ -3,7 +3,7 @@ import { useRef } from "react"
 import Editor from "@monaco-editor/react"
 import { NextPageWithLayout, Page } from "ui"
 import { Layout } from "@/components/Layout"
-import { useTheme } from "next-themes"
+import { useTheme } from "ui/hooks"
 
 const InteractIndex: NextPageWithLayout = () => {
   const editorRef = useRef<any>(null)
