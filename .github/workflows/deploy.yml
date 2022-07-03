@@ -6,7 +6,7 @@ jobs:
   explorer:
     strategy:
       matrix:
-        apps: [
+        arrays: [
           { folder: "explorer", id: ${{ secrets.NETLIFY_ID_EXPLORER }} }
           { folder: "sale", id: ${{ secrets.NETLIFY_ID_SALE }} }
         ]
@@ -24,18 +24,18 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: |
-          ${{ github.workspace }}/apps/${{ matrix.apps.folder }}/.next/cache
+          ${{ github.workspace }}/apps/${{ matrix.arrays.folder }}/.next/cache
           ${{ github.workspace }}/node_modules/.cache/turbo
           ${{ github.workspace }}/.cache
-          ${{ github.workspace }}/apps/${{ matrix.apps.folder }}/.netlify/cache
+          ${{ github.workspace }}/apps/${{ matrix.arrays.folder }}/.netlify/cache
           ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-        key: ${{ runner.os }}-nextjs-${{ matrix.apps.folder }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/${{ matrix.apps.folder }}/**.[jt]sx?', 'apps/${{ matrix.apps.folder }}/**.json', 'lib/**.[jt]sx?') }}
+        key: ${{ runner.os }}-nextjs-${{ matrix.arrays.folder }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/${{ matrix.arrays.folder }}/**.[jt]sx?', 'apps/${{ matrix.arrays.folder }}/**.json', 'lib/**.[jt]sx?') }}
         restore-keys: |
-          ${{ runner.os }}-${{ matrix.apps.folder }}-${{ hashFiles('**/yarn.lock') }}-
+          ${{ runner.os }}-${{ matrix.arrays.folder }}-${{ hashFiles('**/yarn.lock') }}-
 
     - run: yarn install --immutable
 
-    - run: yarn deploy:${{ matrix.apps.folder }}
+    - run: yarn deploy:${{ matrix.arrays.folder }}
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ matrix.apps.id }}
+        NETLIFY_SITE_ID: ${{ matrix.arrays.id }}
