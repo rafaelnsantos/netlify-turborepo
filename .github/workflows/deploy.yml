@@ -29,19 +29,19 @@ jobs:
         workflow_id: 'deploy.yml'
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
-    - run: echo "::set-output name=IGNORE::$(git diff --quiet $(git rev-parse --short ${{ steps.last_successful_commit.outputs.commit_hash }}) $(git rev-parse --short ${{ github.sha }}) -- apps/${{ matrix.folder }} lib)"
+    - run: echo "::set-output name=IGNORE::$(git diff --quiet $(git rev-parse --short ${{ steps.last_successful_commit.outputs.commit_hash }}) $(git rev-parse --short ${{ github.sha }}) -- apps/${{ matrix.folder }} lib || echo "true")"
       id: diff
 
-    - run: echo ${{ steps.diff.IGNORE }}
+    - run: echo ${{ steps.diff.outputs.IGNORE }}
 
     - uses: actions/setup-node@v3
-      if: ${{ steps.diff.IGNORE }} == '1'
+      if: ${{ steps.diff.outputs.IGNORE == 'true' }}
       with:
         node-version: '16'
         cache: 'yarn'
 
     - uses: actions/cache@v3
-      if: ${{ steps.diff.IGNORE }} == '1'
+      if: ${{ steps.diff.outputs.IGNORE == 'true' }}
       with:
         path: |
           ${{ github.workspace }}/node_modules/.cache/turbo
@@ -51,10 +51,10 @@ jobs:
           ${{ runner.os }}-${{ matrix.folder }}-${{ hashFiles('**/yarn.lock') }}-
 
     - run: yarn install --immutable
-      if: ${{ steps.diff.IGNORE }} == '1'
+      if: ${{ steps.diff.outputs.IGNORE == 'true' }}
 
     - run: yarn deploy:${{ matrix.folder }}
-      if: ${{ steps.diff.IGNORE }} == '1'
+      if: ${{ steps.diff.outputs.IGNORE == 'true' }}
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ matrix.id }}

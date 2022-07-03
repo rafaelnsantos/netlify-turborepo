@@ -5,7 +5,6 @@ const LandingPage: NextPageWithLayout = () => {
   return (
     <Page title="Home" description="Home Page Sale">
       <h1>Sale</h1>
-      <button className="btn">Boop</button>
     </Page>
   )
 }
