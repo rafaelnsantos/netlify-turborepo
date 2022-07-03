@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with: 
-        fetch-depth: 10
+        fetch-depth: 0
 
     - uses: nrwl/last-successful-commit-action@v1
       id: last_successful_commit
@@ -31,8 +31,6 @@ jobs:
 
     - run: echo "::set-output name=IGNORE::$(git diff --quiet $(git rev-parse --short ${{ steps.last_successful_commit.outputs.commit_hash }}) $(git rev-parse --short ${{ github.sha }}) -- apps/${{ matrix.folder }} lib || echo "true")"
       id: diff
-
-    - run: echo ${{ steps.diff.outputs.IGNORE }}
 
     - uses: actions/setup-node@v3
       if: ${{ steps.diff.outputs.IGNORE == 'true' }}
