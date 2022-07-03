@@ -1,4 +1,5 @@
 import { NavLink } from "ui/Header"
+import { EXPLORER_URL } from "./env"
 
 export const navigation: NavLink[] = [
   {
@@ -6,7 +7,9 @@ export const navigation: NavLink[] = [
     href: "#",
   },
   {
-    text: "Get started",
-    href: "/",
+    text: "Explore",
+    href: EXPLORER_URL,
+    target: "_blank",
+    rel: "noreferrer",
   },
 ]
