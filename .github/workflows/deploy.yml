@@ -1,6 +1,6 @@
-on: push
-
 name: Publish on Netlify
+
+on: push
 
 jobs:
   deploy:
@@ -8,9 +8,9 @@ jobs:
       matrix:
         include:
           - folder: explorer
-            id: ${{ secrets.NETLIFY_ID_EXPLORER }}
+            id: b0717fc8-7b5c-4368-9f29-4893c56b4473
           - folder: sale
-            id: ${{ secrets.NETLIFY_ID_SALE }}
+            id: c5f3af05-acac-4a0a-a561-52a3ec751962
 
     runs-on: ubuntu-latest
 
@@ -25,18 +25,18 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: |
-          ${{ github.workspace }}/apps/${{ matrix.app.folder }}/.next/cache
+          ${{ github.workspace }}/apps/${{ matrix.folder }}/.next/cache
           ${{ github.workspace }}/node_modules/.cache/turbo
           ${{ github.workspace }}/.cache
-          ${{ github.workspace }}/apps/${{ matrix.app.folder }}/.netlify/cache
+          ${{ github.workspace }}/apps/${{ matrix.folder }}/.netlify/cache
           ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-        key: ${{ runner.os }}-nextjs-${{ matrix.app.folder }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/${{ matrix.app.folder }}/**.[jt]sx?', 'apps/${{ matrix.app.folder }}/**.json', 'lib/**.[jt]sx?') }}
+        key: ${{ runner.os }}-nextjs-${{ matrix.folder }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/${{ matrix.folder }}/**.[jt]sx?', 'apps/${{ matrix.folder }}/**.json', 'lib/**.[jt]sx?') }}
         restore-keys: |
-          ${{ runner.os }}-${{ matrix.app.folder }}-${{ hashFiles('**/yarn.lock') }}-
+          ${{ runner.os }}-${{ matrix.folder }}-${{ hashFiles('**/yarn.lock') }}-
 
     - run: yarn install --immutable
 
-    - run: yarn deploy:${{ matrix.app.folder }}
+    - run: yarn deploy:${{ matrix.folder }}
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ matrix.app.id }}
+        NETLIFY_SITE_ID: ${{ matrix.id }}
