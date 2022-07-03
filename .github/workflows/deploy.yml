@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         arrays: [
-          { folder: "explorer", id: ${{ secrets.NETLIFY_ID_EXPLORER }} }
+          { folder: "explorer", id: ${{ secrets.NETLIFY_ID_EXPLORER }} },
           { folder: "sale", id: ${{ secrets.NETLIFY_ID_SALE }} }
         ]
 
