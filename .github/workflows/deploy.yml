@@ -32,14 +32,16 @@ jobs:
     - run: echo "::set-output name=IGNORE::$(git diff --quiet $(git rev-parse --short ${{ steps.last_successful_commit.outputs.commit_hash }}) $(git rev-parse --short ${{ github.sha }}) -- apps/${{ matrix.folder }} lib)"
       id: diff
 
+    - run: echo ${{ steps.diff.IGNORE }}
+
     - uses: actions/setup-node@v3
-      if: ${{ steps.diff.IGNORE }}
+      if: ${{ steps.diff.IGNORE }} == '1'
       with:
         node-version: '16'
         cache: 'yarn'
 
     - uses: actions/cache@v3
-      if: ${{ steps.diff.IGNORE }}
+      if: ${{ steps.diff.IGNORE }} == '1'
       with:
         path: |
           ${{ github.workspace }}/node_modules/.cache/turbo
@@ -49,10 +51,10 @@ jobs:
           ${{ runner.os }}-${{ matrix.folder }}-${{ hashFiles('**/yarn.lock') }}-
 
     - run: yarn install --immutable
-      if: ${{ steps.diff.IGNORE }}
+      if: ${{ steps.diff.IGNORE }} == '1'
 
     - run: yarn deploy:${{ matrix.folder }}
-      if: ${{ steps.diff.IGNORE }}
+      if: ${{ steps.diff.IGNORE }} == '1'
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ matrix.id }}
