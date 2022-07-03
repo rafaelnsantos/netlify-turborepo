@@ -3,7 +3,7 @@ import { Layout } from "../components/Layout"
 
 const LandingPage: NextPageWithLayout = () => {
   return (
-    <Page title="Home">
+    <Page title="Home" description="Landing Page Sale">
       <h1>Sale</h1>
       <button className="btn">Boop</button>
     </Page>
