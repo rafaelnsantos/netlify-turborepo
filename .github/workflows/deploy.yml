@@ -1,0 +1,41 @@
+on: push
+
+name: Publish on Netlify
+
+jobs:
+  explorer:
+    strategy:
+      matrix:
+        apps: [
+          { folder: "explorer", id: ${{ secrets.NETLIFY_ID_EXPLORER }} }
+          { folder: "sale", id: ${{ secrets.NETLIFY_ID_SALE }} }
+        ]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'yarn'
+
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ${{ github.workspace }}/apps/${{ matrix.apps.folder }}/.next/cache
+          ${{ github.workspace }}/node_modules/.cache/turbo
+          ${{ github.workspace }}/.cache
+          ${{ github.workspace }}/apps/${{ matrix.apps.folder }}/.netlify/cache
+          ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+        key: ${{ runner.os }}-nextjs-${{ matrix.apps.folder }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/${{ matrix.apps.folder }}/**.[jt]sx?', 'apps/${{ matrix.apps.folder }}/**.json', 'lib/**.[jt]sx?') }}
+        restore-keys: |
+          ${{ runner.os }}-${{ matrix.apps.folder }}-${{ hashFiles('**/yarn.lock') }}-
+
+    - run: yarn install --immutable
+
+    - run: yarn deploy:${{ matrix.apps.folder }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ matrix.apps.id }}
