@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with: 
-        fetch-depth: 5
+        fetch-depth: 10
 
     - uses: nrwl/last-successful-commit-action@v1
       id: last_successful_commit
