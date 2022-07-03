@@ -6,9 +6,11 @@ jobs:
   deploy:
     strategy:
       matrix:
-        app: 
-          - { folder: "explorer", id: ${{ secrets.NETLIFY_ID_EXPLORER }} }
-          - { folder: "sale", id: ${{ secrets.NETLIFY_ID_SALE }} }
+        include:
+          - folder: explorer
+            id: ${{ secrets.NETLIFY_ID_EXPLORER }}
+          - folder: sale
+            id: ${{ secrets.NETLIFY_ID_SALE }}
 
     runs-on: ubuntu-latest
 
