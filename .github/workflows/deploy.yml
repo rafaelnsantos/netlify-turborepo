@@ -25,11 +25,8 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: |
-          ${{ github.workspace }}/apps/${{ matrix.folder }}/.next/cache
           ${{ github.workspace }}/node_modules/.cache/turbo
-          ${{ github.workspace }}/.cache
           ${{ github.workspace }}/apps/${{ matrix.folder }}/.netlify/cache
-          ${{ github.workspace }}/**/tsconfig.tsbuildinfo
         key: ${{ runner.os }}-nextjs-${{ matrix.folder }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/${{ matrix.folder }}/**.[jt]sx?', 'apps/${{ matrix.folder }}/**.json', 'lib/**.[jt]sx?') }}
         restore-keys: |
           ${{ runner.os }}-${{ matrix.folder }}-${{ hashFiles('**/yarn.lock') }}-
