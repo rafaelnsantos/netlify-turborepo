@@ -29,8 +29,11 @@ jobs:
         workflow_id: 'deploy.yml'
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
-    - run: git diff --quiet $(git rev-parse --short ${{ steps.last_successful_commit.outputs.commit_hash }}) $(git rev-parse --short ${{ github.sha }}) -- apps/${{ matrix.folder }} lib
-      id: ignore
+    - run: echo "::set-output name=IGNORE::$(git diff --quiet $(git rev-parse --short ${{ steps.last_successful_commit.outputs.commit_hash }}) $(git rev-parse --short ${{ github.sha }}) -- apps/${{ matrix.folder }} lib)"
+      id: diff
+
+    - run: echo ${{ steps.diff.IGNORE }}
+      if: ${{ steps.diff.IGNORE }}
 
     - uses: actions/setup-node@v3
       with:
